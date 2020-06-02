@@ -25,8 +25,8 @@
   
       "guest_os_type": "ubuntu64Guest",
   
-      "ssh_username": "{{user `ssh-username`}}",
-      "ssh_password": "{{user `ssh-password`}}",
+      "ssh_username": "ubuntu",
+      "ssh_password": "ubuntu",
   
       "CPUs": "{{user `vm-cpu-num`}}",
       "RAM": "{{user `vm-mem-size`}}",
@@ -56,7 +56,7 @@
         " initrd=/install/initrd.gz",
         " priority=critical",
         " locale=en_US",
-        " file=/media/preseed_server.cfg",
+        " file=/media/preseed.cfg",
         "<enter>"
       ]
     }
@@ -64,7 +64,18 @@
   "provisioners": [
     {
       "type": "shell",
-      "inline": ["echo 'Packer Template Build -- Complete'"]
+      "inline": [
+	"echo 'Packer Template Build -- Complete'",
+	"sleep 30",
+	"sudo apt update",
+	"sudo apt install -y docker.io",
+	"wget https://github.com/buildpacks/pack/releases/download/v0.11.0/pack-v0.11.0-linux.tgz",
+        "tar xvf pack-v0.11.0-linux.tgz",
+        "rm pack-v0.11.0-linux.tgz",
+	"sudo mv pack /usr/local/bin/",
+        "sudo docker pull gcr.io/paketo-buildpacks/builder:base",
+	"sudo docker pull gcr.io/paketo-buildpacks/run:base-cnb"
+      ]
     }
   ]
 }

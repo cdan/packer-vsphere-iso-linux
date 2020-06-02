@@ -1,22 +1,22 @@
 {
   "vm-name": "Ubuntu-1804-Template",
     
-  "vcenter-server":"kopi-vsphere-01",
-  "vcenter-username":"administrator@kopicloud.local",
-  "vcenter-password":"Ins3cur3P@ssw0rd",
+  "vcenter-server":"10.186.138.156",
+  "vcenter-username":"administrator@vsphere.local",
+  "vcenter-password":"Admin!23",
   
-  "datacenter": "KopiCloud",
-  "datastore": "Kopi-Datastore-01",
+  "datacenter": "vcqaDC",
+  "datastore": "local-0",
   "folder": "Templates",
-  "cluster": "Kopi-Cluster",
+  "cluster": "cluster0",
   "network": "VM Network",
   
-  "vm-cpu-num": "1",
-  "vm-mem-size": "1024",
+  "vm-cpu-num": "2",
+  "vm-mem-size": "2048",
   "vm-disk-size": "10240",
     
-  "ssh-username": "kopicloud",
-  "ssh-password": "kopicloud",
+  "ssh-username": "builder",
+  "ssh-password": "builder",
   
   "iso-url": "http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.4-server-amd64.iso",
   "iso-checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
